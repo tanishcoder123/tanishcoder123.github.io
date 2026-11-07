@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Tanish Kumar | Web Developer Portfolio</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+
+<meta name="description" content="Tanish Kumar is a beginner web developer passionate about creating modern and responsive websites using HTML, CSS, JavaScript, and Python. Explore my portfolio, coding journey, skills, and projects.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: rgb(0, 0, 33);
+      color: white;
+      font-family: "Playfair Display", serif;
+    }
+
+    nav {
+      min-height: 60px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: rgb(10, 10, 50);
+      flex-wrap: wrap;
+      padding: 10px;
+    }
+
+    .left {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .right ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .right ul a {
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .right ul a:hover {
+      color: skyblue;
+    }
+
+    .firstsection {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      min-height: 250px;
+    }
+
+    .firstsection > div {
+      width: 30%;
+    }
+
+    .leftsection {
+      font-size: 2rem;
+      margin: 15px 0;
+    }
+
+    .rightsection img {
+      width: 225px;
+      max-width: 100%;
+      margin: 15px 30px 0 0;
+    }
+
+    .span,
+    #element {
+      color: rgb(170, 107, 228);
+    }
+
+    main hr {
+      border: 0;
+      background: #9c97f1;
+      height: 1.2px;
+      margin: 20px 55px;
+    }
+
+    .secondsection {
+      max-width: 80vw;
+      margin: auto;
+      padding: 15px 0;
+    }
+
+    .secondsection > span {
+      color: grey;
+    }
+
+    .secondsection h2 {
+      font-size: 28px;
+      margin: 8px 0 15px;
+    }
+
+    .experience {
+      border-left: 2px solid #9c97f1;
+      padding: 5px 0 5px 18px;
+    }
+
+    .experience h3 {
+      color: rgb(170, 107, 228);
+      margin: 12px 0;
+    }
+
+    .experience p,
+    .experience li {
+      color: #ddd;
+      line-height: 1.7;
+    }
+
+    .experience ul {
+      padding-left: 22px;
+    }
+
+    footer {
+      background: rgb(10, 10, 50);
+      margin-top: 40px;
+      padding: 35px 10%;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+
+    .footer-box h3 {
+      color: rgb(170, 107, 228);
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .footer-box p {
+      color: #ccc;
+      line-height: 1.7;
+    }
+
+    .footer-box ul {
+      list-style: none;
+    }
+
+    .footer-box ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-box a {
+      color: #ccc;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .footer-box a:hover {
+      color: skyblue;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 19px;
+      border: 1px solid rgb(170, 107, 228);
+      border-radius: 50%;
+      transition: 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background: rgb(170, 107, 228);
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px rgb(170, 107, 228);
+    }
+
+    .social-icons a:active {
+      transform: scale(0.9);
+    }
+
+    .copyright {
+      text-align: center;
+      border-top: 1px solid #555;
+      margin-top: 30px;
+      padding-top: 20px;
+      color: grey;
+      font-size: 14px;
+    }
+
+    @media (max-width: 800px) {
+      .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .left {
+        font-size: 23px;
+      }
+
+      .right ul {
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .firstsection {
+        flex-direction: column;
+        text-align: center;
+        min-height: auto;
+        padding: 15px 0;
+      }
+
+      .firstsection > div {
+        width: 90%;
+      }
+
+      .leftsection {
+        font-size: 1.7rem;
+        margin: 10px 0;
+      }
+
+      .rightsection img {
+        margin: 10px;
+      }
+
+      main hr {
+        margin: 15px 20px;
+      }
+
+      .secondsection {
+        max-width: 90vw;
+      }
+
+      .secondsection h2 {
+        font-size: 24px;
+      }
+
+      footer {
+        padding: 30px 8%;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <div class="left">Tanish's Portfolio</div>
+
+      <div class="right">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact Me</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="firstsection" id="home">
+
+      <div class="leftsection">
+        Hi! My name is <span class="span">Tanish</span>
+
+        <div>And I am passionate about</div>
+
+        <span id="element"></span>
+      </div>
+
+      <div class="rightsection">
+        <img src="bg.jpg" alt="Tanish Portfolio Image">
+      </div>
+
+    </section>
+
+    <hr>
+
+    <section class="secondsection" id="about">
+
+      <span>My Learning Journey</span>
+
+      <h2>Learning Experience</h2>
+
+      <div class="experience">
+
+        <h3>Frontend Developer (Beginner)</h3>
+
+        <p>
+          I am a passionate beginner frontend developer
+          learning and building responsive websites using
+          HTML, CSS, and JavaScript.
+        </p>
+
+        <ul>
+          <li>Created personal portfolio websites.</li>
+          <li>Developed responsive web page designs.</li>
+          <li>Practiced HTML, CSS, and JavaScript.</li>
+          <li>Built small frontend projects.</li>
+          <li>Continuously learning web development technologies.</li>
+        </ul>
+
+        <h3>Currently Learning</h3>
+
+        <p>Frontend Development | JavaScript | Python</p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer id="contact">
+
+    <div class="footer-container">
+
+      <div class="footer-box">
+        <h3>About Me</h3>
+
+        <p>
+          Hi! I am Tanish, a beginner web developer.
+          I love coding and creating modern websites.
+          My dream is to become a Software Engineer.
+        </p>
+      </div>
+
+      <div class="footer-box">
+        <h3>Quick Links</h3>
+
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-box">
+        <h3>My Skills</h3>
+
+        <ul>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>Python</li>
+        </ul>
+      </div>
+
+      <div class="footer-box">
+        <h3>Connect With Me</h3>
+
+        <div class="social-icons">
+
+          <a href="https://github.com/tanishcoder123"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+
+          <a href="https://www.linkedin.com/in/tanish-coder-7800a743a"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+
+          <a href="https://www.instagram.com/tanish91704/"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <a href="https://www.youtube.com/@TanishCoder-123"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 Tanish Kumar | Made with ♥ and Code
+    </div>
+
+  </footer>
+
+  <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
+
+  <script>
+    var typed = new Typed('#element', {
+      strings: ['Web Developer', 'Web Designer'],
+      typeSpeed: 100,
+      loop: true
+    });
+  </script>
+
+</body>
+</html>

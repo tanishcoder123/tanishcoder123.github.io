@@ -7,10 +7,15 @@
   <title>Tanish Kumar | Web Developer Portfolio</title>
   <link rel="icon" type="image/png" href="favicon.png">
 
-<meta name="description" content="Tanish Kumar is a beginner web developer passionate about creating modern and responsive websites using HTML, CSS, JavaScript, and Python. Explore my portfolio, coding journey, skills, and projects.">
-<meta name="google-site-verification" content="19z70x2tGEb4Peuv_PqzaaKFU6x-ZKzpWAxnfp8On6Q" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Tanish Kumar is a beginner web developer passionate about creating modern and responsive websites using HTML, CSS, JavaScript, and Python. Explore my portfolio, coding journey, skills, and projects.">
+  <meta name="google-site-verification" content="19z70x2tGEb4Peuv_PqzaaKFU6x-ZKzpWAxnfp8On6Q" />
 
+  <!-- Open Graph (link share karne par preview) -->
+  <meta property="og:title" content="Tanish Kumar | Web Developer Portfolio">
+  <meta property="og:description" content="Beginner web developer building responsive websites with HTML, CSS, JavaScript, and Python.">
+  <meta property="og:type" content="website">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <style>
@@ -28,6 +33,13 @@
       background: rgb(0, 0, 33);
       color: white;
       font-family: "Playfair Display", serif;
+    }
+
+    /* Keyboard focus ke liye saaf outline */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid skyblue;
+      outline-offset: 3px;
     }
 
     nav {
@@ -124,6 +136,27 @@
 
     .experience ul {
       padding-left: 22px;
+    }
+
+    /* ===== Skills Section ===== */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .skill-chip {
+      padding: 8px 16px;
+      border: 1px solid rgb(170, 107, 228);
+      border-radius: 999px;
+      color: white;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .skill-chip:hover {
+      background: rgb(170, 107, 228);
     }
 
     /* ===== Projects Section ===== */
@@ -256,6 +289,41 @@
       font-size: 14px;
     }
 
+    /* ===== Scroll Reveal ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ===== Back to Top ===== */
+    #backToTop {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgb(170, 107, 228);
+      background: rgb(10, 10, 50);
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    #backToTop.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
     @media (max-width: 800px) {
       .footer-container {
         grid-template-columns: repeat(2, 1fr);
@@ -308,6 +376,22 @@
         gap: 25px;
       }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .typed-cursor {
+        display: none;
+      }
+    }
   </style>
 </head>
 
@@ -321,6 +405,7 @@
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact Me</a></li>
         </ul>
@@ -331,15 +416,14 @@
   <main>
 
     <section class="firstsection" id="home">
-
       <div class="leftsection">
         Hi! My name is <span class="span">Tanish</span>
 
         <div>And I am passionate about</div>
 
-        <span id="element"></span>
+        <!-- Typed.js load na ho to ye fallback text dikhega -->
+        <span id="element">Web Developer</span>
       </div>
-
     </section>
 
     <hr>
@@ -372,6 +456,25 @@
 
         <p>Frontend Development | JavaScript | Python</p>
 
+      </div>
+
+    </section>
+
+    <hr>
+
+    <section class="secondsection" id="skills">
+
+      <span>What I Know</span>
+
+      <h2>My Skills</h2>
+
+      <div class="skills-grid">
+        <span class="skill-chip">HTML</span>
+        <span class="skill-chip">CSS</span>
+        <span class="skill-chip">JavaScript</span>
+        <span class="skill-chip">Python</span>
+        <span class="skill-chip">Git &amp; GitHub</span>
+        <span class="skill-chip">Responsive Design</span>
       </div>
 
     </section>
@@ -421,6 +524,7 @@
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About Me</a></li>
+          <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -481,14 +585,43 @@
 
   </footer>
 
+  <button id="backToTop" aria-label="Back to top">&uarr;</button>
+
   <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
 
   <script>
+    // Typing effect
     var typed = new Typed('#element', {
       strings: ['Web Developer', 'Web Designer'],
       typeSpeed: 100,
       loop: true
     });
+
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('show', window.scrollY > 400);
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Scroll reveal: sections tab fade-in hon jab screen par aayein
+    const targets = document.querySelectorAll('.secondsection, footer');
+    targets.forEach(el => el.classList.add('reveal'));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    targets.forEach(el => observer.observe(el));
   </script>
 
 </body>
